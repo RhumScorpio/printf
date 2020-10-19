@@ -6,14 +6,14 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/08 13:47:47 by clesaffr          #+#    #+#             */
-/*   Updated: 2020/10/09 17:29:53 by clesaffr         ###   ########.fr       */
+/*   Updated: 2020/10/09 17:58:36 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdarg.h>
 
-void	ft_printf(int first, ...)
+void	ft_printnunom(int first, ...)
 {
 	int current;
 	va_list	nunom;
@@ -31,7 +31,25 @@ void	ft_printf(int first, ...)
 	va_end(nunom);
 }
 
+void	ft_printf(const	char *first, ...)
+{
+	char *current;
+	va_list argument;
+
+	current = NULL;
+	va_start(argument, first);
+	current = (char *)first;
+
+	while(current != NULL)
+	{
+		printf("%s\n", current);
+		current = (char *)va_arg(argument, char*);
+	}
+	va_end(argument);
+}
+
 int main(void)
 {
-	ft_printf(1, 2, 3, 4, 5, 6, 7, 0);
+	ft_printnunom(1, 2, 3, 4, 5, 6, 7, 0);
+	ft_printf("bonjour", "tout", "le", "monde", NULL);
 }
