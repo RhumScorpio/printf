@@ -6,7 +6,7 @@
 /*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 10:26:45 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/01/19 09:35:53 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/01/11 14:09:01 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ void	init_indic_flag(t_indic *flag)
 void	put_zero(t_indic *flag)
 {
 	if (flag->minus == 1)
-		flag->minus = 0;
-	flag->zero = 1;
+		flag->minus == 0;
+	flag->zero == 1;
 }
 
 void	put_symbol(char c, t_indic *flag)
@@ -87,12 +87,12 @@ void	parse_digits(char s, t_indic *flag)
 	flag->digits = s - '0' + (flag->digits * 10);
 }
 
-//void	select_ft_type(char s, t_indic *flag, va_list *va)
-//{
+void	select_ft_type(char s, t_indic *flag, va_list *va)
+{
 	//void (*type[1])(t_indic, va_list);
 
 	//type[0] = ft_int;
-	//ft_int(flag, va);
+	ft_int(flag, va);
 	/*type[1] = ft_string;
 	type[2] = ft_char;
 	type[3] = ft_p;
@@ -101,9 +101,9 @@ void	parse_digits(char s, t_indic *flag)
 	type[7] = ft_u;
 	type[6] = ft_percent;*/
 	// TABLEAU DE POINTEURS SUR FONCTION AVEC cspdiuxX% comme index
-//}
+}
 
-int parsing_args(const char *s, int i/*, va_list *va*/)
+int parsing_args(const char *s, int i, va_list *va)
 {
 	t_indic	*flag;
 	int	c_count;
@@ -111,7 +111,6 @@ int parsing_args(const char *s, int i/*, va_list *va*/)
 	printf("parsingargs\n");
 	printf("on va checker char = %c\n", s[i]);
 	ft_istype(s[i]);
-	flag = NULL;
 	//init_indic_flag(flag);
 	c_count = 0;
 	while (ft_isdigit(s[i])/* || ft_istype(s[i])*/ || ft_issymbol(s[i]))
@@ -119,7 +118,7 @@ int parsing_args(const char *s, int i/*, va_list *va*/)
 		printf("ft_istype\n");
 		if (ft_istype(s[i]))
 		{
-		//	select_ft_type(s[i], flag, va);
+			select_ft_type(s[i], flag, va);
 			c_count++;
 			return (c_count);
 		}
@@ -156,8 +155,8 @@ void	parsing_str(const char *s, ...)
 	{
 		if(s[i] == '%' && s[i + 1])
 		{
-			printf("FIND%%\n");
-			c_count += parsing_args(s, i + 1i/*, &va*/);
+			printf("FIND%\n");
+			c_count += parsing_args(s, i + 1, &va);
 		}
 		write(1, &s[i], 1);
 		i++;
