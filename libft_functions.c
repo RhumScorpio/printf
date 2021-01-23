@@ -6,7 +6,7 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 08:10:58 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/01/21 08:12:09 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/01/22 08:06:14 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,3 +102,23 @@ char	*ft_itoa(int nb)
 	return (str);
 }
 
+char	*ft_strdup(char *src)
+{
+	int		len;
+	int		i;
+	char	*str;
+
+	len = 0;
+	i = 0;
+	while (*(src + len) != '\0')
+		++len;
+	if (!(str = malloc(sizeof(char) * (len + 1))))
+		return (0);
+	while (*(src + i) != '\0')
+	{
+		str[i] = src[i];
+		++i;
+	}
+	str[i] = '\0';
+	return (str);
+}
