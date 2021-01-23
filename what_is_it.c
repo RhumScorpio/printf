@@ -6,7 +6,7 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 09:04:01 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/01/22 14:40:13 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/01/23 16:53:56 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	ft_issymbol(char c)
 	return (0);
 }
 
-t_indic	*init_indic_flag(t_indic *flag)
+t_indic	init_indic_flag(t_indic *flag)
 {
 	flag->width = 0;
 	flag->zero = 0;
@@ -63,5 +63,5 @@ t_indic	*init_indic_flag(t_indic *flag)
 	flag->minus = 0;
 	flag->star = 0;
 	flag->negative = 0;
-	return (flag);
+	return (*flag);
 }

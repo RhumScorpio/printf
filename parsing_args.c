@@ -6,7 +6,7 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 11:08:03 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/01/23 14:08:16 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/01/23 17:14:07 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,9 @@ void	parsing_types(char c, va_list *va, t_indic *flag)
 		ft_hexacaps(flag, va);
 }*/
 
-t_indic	*parsing_digits(char c, t_indic *flag)
+void	parsing_digits(char c, t_indic *flag)
 {
 	if (c == '0' && flag->width == 0)
-		return (zeroflag(flag));
+		zeroflag(flag);
 	flag->width = c - '0' + (flag->width * 10);
-	return (flag);
 }
