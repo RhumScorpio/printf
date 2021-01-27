@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_cut.c                                        :+:      :+:    :+:   */
+/*   main5.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/21 08:54:07 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/01/27 17:17:10 by clesaffr         ###   ########.fr       */
+/*   Created: 2021/01/27 16:56:29 by clesaffr          #+#    #+#             */
+/*   Updated: 2021/01/27 17:23:04 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int		print_cut(char *len, int cut)
+void listing(t_indic *flag, int nbr, ...)
 {
-	int i;
+	va_list va;
+	int	e;
+	va_start(va, nbr);
+	e = ft_int(flag, &va);
+	va_end(va);
+}
 
-	i = 0;
-	while(i < cut)
-	{
-		ft_putchar(len[i]);
-		i++;
-	}
-	return (i);
+int main(void)
+{
+	t_indic flag;
+	init_indic_flag(&flag);
+	flag.zero = 1;
+	flag.width = 12;
+	listing(&flag, 12, -23, 80, -42);
+	ft_putchar('\n');
+	init_indic_flag(&flag);
+	flag.dot = 12;
+	listing(&flag, 12, -42);
+	return (0);
+	
 }

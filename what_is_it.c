@@ -6,7 +6,7 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 09:04:01 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/01/23 16:53:56 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/01/27 10:11:09 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isdigit(char	c)
 {
-	if (c >= '0' && c < '9')
+	if (c >= '0' && c <= '9')
 	{
 		printf("ft_isdigits\n");
 		return (1);
@@ -55,13 +55,12 @@ int	ft_issymbol(char c)
 	return (0);
 }
 
-t_indic	init_indic_flag(t_indic *flag)
+void	init_indic_flag(t_indic *flag)
 {
 	flag->width = 0;
 	flag->zero = 0;
-	flag->dot = 0;
+	flag->dot = -1;
 	flag->minus = 0;
 	flag->star = 0;
 	flag->negative = 0;
-	return (*flag);
 }

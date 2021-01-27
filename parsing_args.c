@@ -6,24 +6,27 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 11:08:03 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/01/23 17:14:07 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/01/27 17:23:13 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-/*t_indic	*parsing_symbols(char c, t_indic *flag)
+int		parsing_symbols(va_list *va, const char *s, int mark, char c, t_indic *flag)
 {
+	int i;
+
+	i = 0;
 	if (c == '-')
-		flag = minusflag(flag);
+		minusflag(flag);
 	if (c == '*')
-		flag = starflag(flag);
+		starflag(va, flag);
 	if (c == '.')
-		flag = dotflag(flag);
-	return (flag);
+		i = dotflag(s, mark, flag);
+	return (i);
 }
 
-void	parsing_types(char c, va_list *va, t_indic *flag)
+/*void	parsing_types(char c, va_list *va, t_indic *flag)
 {
 	if (c == 'c')
 		ft_char(flag, va);

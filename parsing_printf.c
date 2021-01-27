@@ -6,16 +6,11 @@
 /*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 10:26:45 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/01/23 17:16:11 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/01/27 17:23:16 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
-
-void	parse_digits(char s, t_indic *flag)
-{
-	flag->digits = s - '0' + (flag->digits * 10);
-}
 
 //void	select_ft_type(char s, t_indic *flag, va_list *va)
 //{
@@ -45,10 +40,11 @@ int parsing_args(const char *s, int i, va_list *va)
 		if (ft_isdigits(s[i]))
 			parsing_digits(s[i], flag);
 		if (ft_issymbol(s[i]))
-			flag = parsing_symbols(s[i], flag);
+			c_count += parsing_symbols(va, s, i, s[i], flag);
 		if (ft_istype(s[i]))
 		{
 			parsing_types(s[i], va, flag);
+			c_count++;
 			break;
 		}
 		i++;
@@ -72,6 +68,6 @@ void	printf(const char *s, ...)
 		}
 		write(1, &s[c_count], 1);
 		c_count++;
-	}		
+	}
 	va_end(va);
 }
