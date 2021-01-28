@@ -6,7 +6,7 @@
 /*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 10:26:45 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/01/27 17:23:16 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/01/28 12:34:39 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,20 @@
 
 int parsing_args(const char *s, int i, va_list *va)
 {
-	t_indic	*flag;
+	t_indic	flag;
 	int	c_count;
 
-	init_indic_flag(flag);
+	init_indic_flag(&flag);
 	c_count = 0;
 	while (ft_isdigit(s[i]) || ft_istype(s[i]) || ft_issymbol(s[i]))
 	{
-		if (ft_isdigits(s[i]))
-			parsing_digits(s[i], flag);
+		if (ft_isdigit(s[i]))
+			parsing_digits(s[i], &flag);
 		if (ft_issymbol(s[i]))
-			c_count += parsing_symbols(va, s, i, s[i], flag);
+			c_count += parsing_symbols(va, s, i, s[i], &flag);
 		if (ft_istype(s[i]))
 		{
-			parsing_types(s[i], va, flag);
+			//parsing_types(s[i], va, &flag);
 			c_count++;
 			break;
 		}
@@ -53,21 +53,26 @@ int parsing_args(const char *s, int i, va_list *va)
 	return (c_count);
 }
 
-void	printf(const char *s, ...)
+int	ft_printf(const char *s, ...)
 {
-	va_list	*va;
+	va_list	va;
 	int c_count;
+	int ret;
 
 	va_start(va, s);
 	c_count = 0;
+	ret = 0;
 	while (s[c_count])
 	{
 		if (s[c_count] == '%' && s[c_count + 1])
 		{
-			c_count += parsing_args(s, c_count++, va);
+			ret = parsing_args(s, ++c_count, &va);
+			if (ret)
+				c_count += ret;
 		}
 		write(1, &s[c_count], 1);
 		c_count++;
 	}
 	va_end(va);
+	return (c_count);
 }
