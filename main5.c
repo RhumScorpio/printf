@@ -6,7 +6,7 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 16:56:29 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/01/27 17:23:04 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/01/27 18:50:19 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ int main(void)
 	t_indic flag;
 	init_indic_flag(&flag);
 	flag.zero = 1;
-	flag.width = 12;
-	listing(&flag, 12, -23, 80, -42);
+	flag.width = 12;//checker negatif
+	listing(&flag, 0, -23, 80, -42);//tester avec une valeur NULL // voir comment char c s'affiche
 	ft_putchar('\n');
-	init_indic_flag(&flag);
-	flag.dot = 12;
-	listing(&flag, 12, -42);
+	init_indic_flag(&flag);//test avec des sets inities a une autre valeur
+	flag.dot = 12;//checker negatif
+	listing(&flag, 0, -42);
 	return (0);
 	
 }
