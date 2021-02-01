@@ -6,7 +6,7 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 11:08:03 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/01/27 17:23:13 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/02/01 19:11:14 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,9 @@ int		parsing_symbols(va_list *va, const char *s, int mark, char c, t_indic *flag
 		ft_pointer(flag, va);
 	if (c == 'u')
 		ft_unsignedint(flag, va);
-	if (c == 'x')
+	if (c == 'x' || c == 'X')
 		ft_hexa(flag, va);
-	if (c == 'X')
-		ft_hexacaps(flag, va);
+
 }*/
 
 void	parsing_digits(char c, t_indic *flag)
