@@ -4,7 +4,8 @@
 - Faire des fonctions qui putchar et renvoient un int, une pour la précision, une pour les zero et les espaces.
 - Pas besoin de faire un tableau de fonctions/faire des fonctions qui renvoient des ints
 - *itoa* retourne un *char*
-```typedef	struct		s_flags
+```
+typedef	struct		s_flags
 {
 	int				already_print;
 	int				type;
