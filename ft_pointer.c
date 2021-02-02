@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hexa.c                                          :+:      :+:    :+:   */
+/*   ft_pointer.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/01 17:20:17 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/02/02 16:20:45 by clesaffr         ###   ########.fr       */
+/*   Created: 2021/02/02 11:28:01 by clesaffr          #+#    #+#             */
+/*   Updated: 2021/02/02 16:20:29 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int		len_nbr(unsigned int nbr, int len)
+int		len_nbr(unsigned long long nbr, int len)
 {
 	int i;
 	i = 0;
@@ -24,7 +24,7 @@ int		len_nbr(unsigned int nbr, int len)
 	return (i);
 }
 
-char	*ft_xbase(unsigned int nbr, char *base)
+char	*ft_pbase(unsigned long long nbr, char *base)
 {
 	char	*str;
 	int 	len;
@@ -47,25 +47,14 @@ char	*ft_xbase(unsigned int nbr, char *base)
 	return (str);
 }
 
-void	ft_hexa(char c, t_indic *flag, va_list *va)
+void	ft_pointer(t_indic *flag, va_list *va)
 {
-	char	*base;
-	char	*hexa;
-	int		nb;
-	unsigned int		nbr;
+	unsigned long long address;
+	char *base;
+	char *str;
 
-	nb = va_arg(*va, int);
-	if (nb < 0)
-		flag->negative = 1;
-	nbr = (unsigned int)nb;
-	if (c == 'x' && flag->negative)
-		base = "fedcba9876543210";
-	if (c == 'x')
-		base = "0123456789abcdef";
-	if (c == 'X' && flag->negative)
-		base = "FEDCBA9876543210";
-	if (c == 'X')
-		base = "0123456789ABCDEF";
-	hexa = ft_xbase(nbr, base);
+	base = "0123456789abcdef";
+	address = (unsigned long long)va_arg(*va, unsigned int);
+	str = ft_pbase(address, base);
 	//GESTION DES FLAGS
 }

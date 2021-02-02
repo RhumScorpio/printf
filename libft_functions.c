@@ -6,7 +6,7 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 08:10:58 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/01/22 08:06:14 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/02/02 09:43:16 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,4 +121,29 @@ char	*ft_strdup(char *src)
 	}
 	str[i] = '\0';
 	return (str);
+}
+
+char	*ft_strcat(char *dest, char *src)
+{
+	int		size;
+	int		i;
+	int		j;
+	char	*tmp;
+
+	i = 0;
+	j = 0;
+	size = ft_strlen(dest) + ft_strlen(src);
+	tmp = malloc(sizeof(char) * size + 1);
+	while (dest[j])
+	{
+		tmp[j] = dest[j];
+		++j;
+	}
+	while (src[i] && (i + j) < size)
+	{
+		tmp[j + i] = src[i];
+		i++;
+	}
+	tmp[i + j] = '\0';
+	return (tmp);
 }
