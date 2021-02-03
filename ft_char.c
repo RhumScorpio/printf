@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_cut.c                                        :+:      :+:    :+:   */
+/*   ft_char.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/21 08:54:07 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/02/03 16:31:11 by clesaffr         ###   ########.fr       */
+/*   Created: 2021/02/03 16:56:06 by clesaffr          #+#    #+#             */
+/*   Updated: 2021/02/03 17:18:58 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int		print_cut(char *len, int cut)
+int		ft_char(t_indic *flag, va_list *va)
 {
-	int i;
+	char	c;
 
-	i = 0;
-	while(i < cut)
+	c = va_arg(*va, int);
+	if (flag->zero)
 	{
-		ft_putchar(len[i]);
-		i++;
+		print_width(flag->width, 1, 1);
+		ft_putchar(c);
+		return (0);
 	}
-	return (i);
+	if (flag->minus)
+	{
+		ft_putchar(c);
+		print_width(flag->width, 1, 0);
+		return (0);
+	}
+	print_width(flag->width, 1, 0);
+	ft_putchar(c);
+	return (0);
 }
