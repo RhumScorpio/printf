@@ -6,7 +6,7 @@
 /*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 10:27:38 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/02/02 07:41:43 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/02/05 15:42:07 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,14 @@ typedef	struct	s_indic
 	int		negative;
 }				t_indic;
 
+void	init_indic_flag(t_indic *flag);
 void	ft_putchar(char c);
 void	ft_putstr(char *s);
+void 	minusflag(t_indic *flag);
+void	starflag(va_list *va, t_indic *flag);
+void	zeroflag(t_indic *flag);
+void	parsing_digits(char c, t_indic *flag);
 void	parsing_str(const char *s, ...);
-void	init_indic_flag(t_indic *flag);
 
 int		ft_strlen(char *str);
 int		ft_isdigit(char	c);
@@ -36,16 +40,16 @@ int		ft_istype(char c);
 int		ft_issymbol(char c);
 int		print_width(int width, int cut, int zero);
 int		print_cut(char *len, int cut);
+int		dotflag(const char *s, int mark, t_indic *flag);
+int		parsing_symbols(va_list *va, const char *s, int mark, char c, t_indic *flag);
+int		ft_int(t_indic *flag, va_list *va);
+int		ft_string(t_indic *flag, va_list *va);
+int		ft_char(t_indic *flag, va_list *va);
+int		ft_hexa(char c, t_indic *flag, va_list *va);
+int		ft_pointer(t_indic *flag, va_list *va);
 
 char	*ft_itoa(int nb);
 char	*ft_strdup(char *src);
 
-void 	minusflag(t_indic *flag);
-void	starflag(va_list *va, t_indic *flag);
-int		dotflag(const char *s, int mark, t_indic *flag);
-void	zeroflag(t_indic *flag);
-int		parsing_symbols(va_list *va, const char *s, int mark, char c, t_indic *flag);
-void	parsing_digits(char c, t_indic *flag);
 
-int	ft_int(t_indic *flag, va_list *va);
 

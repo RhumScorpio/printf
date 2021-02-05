@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main5.c                                            :+:      :+:    :+:   */
+/*   mainp.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/27 16:56:29 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/02/05 14:11:09 by clesaffr         ###   ########.fr       */
-/*   Updated: 2021/01/28 12:29:02 by clesaffr         ###   ########.fr       */
+/*   Created: 2021/02/05 14:51:17 by clesaffr          #+#    #+#             */
+/*   Updated: 2021/02/05 16:39:36 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
-void		istring(int zero, int width, int dot, int minus, char *str, ...)
+void		pstring(int zero, int width, int dot, int minus, char *str, ...)
 {
 	va_list va;
 	t_indic flag;
@@ -26,44 +25,43 @@ void		istring(int zero, int width, int dot, int minus, char *str, ...)
 	va_start(va, str);
 	printf("%s\n", str);
 
-	ft_int(&flag, &va);
+	ft_pointer(&flag, &va);
 
 	va_end(va);
 }
 
-int main(int ac, char **av)
+int main(void)
 {
+	int a;
+	char e;
 	int i;
+	char *f;
+	int	g;
 
-	if (ac == 1)
-	{
-		printf("ENTER A NUMBER BITCH");
-		return (0);
-	}
-	i = atoi(av[1]);
-	istring(0, 20, 6, 0, "-------------------", i);
+	f = "lol";
+	a = 899;
+	i = 0;
+	e = '%';
+	g = 42;
+
+	pstring(0, 0, 6, 0, "-------------------", &g);
 	ft_putchar('%');
 	ft_putchar('\n');
-	printf("%20.6d%%\n", i);
-	istring(0, 20, -1, 1, "-------------------", i);
+	printf("%.6p%%\n", &g);
+	pstring(0, 20, -1, 1, "-------------------", &a);
 	ft_putchar('%');
 	ft_putchar('\n');
-	printf("%-20d%%\n", i);
-	istring(1, 20, -1, 0, "-------------------", i);
+	printf("%-20.5p%%\n", &a);
+	pstring(0, 20, 5, 0, "-------------------", &e);
 	ft_putchar('%');
 	ft_putchar('\n');
-	printf("%020d%%\n", i);
-	istring(0, 20, -1, 0, "-------------------", i);
+	printf("%20.5p%%\n", &e);
+	pstring(1, 20, -1, 0, "-------------------", &i);
 	ft_putchar('%');
 	ft_putchar('\n');
-	printf("%20d%%\n", i);
-	istring(0, 20, 1, 0, "-------------------", i);
+	printf("%020p%%\n", &i);
+	pstring(0, 20, 5, 0, "-------------------", f);
 	ft_putchar('%');
 	ft_putchar('\n');
-	printf("%20.1d%%\n", i);
-	istring(0, 10, 5, 1, "-------------------", i);
-	ft_putchar('%');
-	ft_putchar('\n');
-	printf("%-010.5d%%\n", i);
-	return (0);
+	printf("%20.5p%%\n", f);
 }

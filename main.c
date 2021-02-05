@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_width.c                                      :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/21 08:00:22 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/02/05 14:04:26 by clesaffr         ###   ########.fr       */
+/*   Created: 2021/02/05 14:26:57 by clesaffr          #+#    #+#             */
+/*   Updated: 2021/02/05 14:50:12 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int		print_width(int width, int cut, int zero)
+int main(void)
 {
-	int lenght;
-	int i;
+	int		nbr;
+	int		pointer;
+	char 	*str;
+	char	c;
 
-	i = 0;
-	lenght = width - cut;
-	while (i < lenght)
-	{
-		if(zero)
-			ft_putchar('0');
-		else
-			ft_putchar(' ');
-		i++;
-	}
-	return (i);
+	str = "j4qime les mouiells";
+	nbr = 12332;
+	pointer = -42;
+	c = '$';
+
+	ft_printf("str -- %s\n", str);
+	printf("str -- %s\n", str);
+	ft_printf("int -- %d\n", nbr);
+	printf("int -- %d\n", nbr);
+	ft_printf("pointer -- %p\n", &pointer);
+	printf("pointer -- %p\n", &pointer);
+	ft_printf("char -- %c\n", c);
+	printf("char -- %c\n", c);
+	return (0);
 }

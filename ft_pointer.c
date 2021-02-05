@@ -6,7 +6,7 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 11:28:01 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/02/02 16:20:29 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/02/05 17:15:24 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int		len_nbr(unsigned long long nbr, int len)
 {
 	int i;
+
 	i = 0;
 	while (nbr)
 	{
@@ -33,6 +34,7 @@ char	*ft_pbase(unsigned long long nbr, char *base)
 
 	len = ft_strlen(base);
 	size = len_nbr(nbr, len);
+	printf("SIZE --- %d\n", size);
 	if(!(str = malloc(sizeof(char) * size + 1)))
 		return (NULL);
 	str[size] = '\0';
@@ -47,14 +49,35 @@ char	*ft_pbase(unsigned long long nbr, char *base)
 	return (str);
 }
 
-void	ft_pointer(t_indic *flag, va_list *va)
+int		ft_pointer(t_indic *flag, va_list *va)
 {
-	unsigned long long address;
+	unsigned long long  address;
 	char *base;
 	char *str;
 
 	base = "0123456789abcdef";
-	address = (unsigned long long)va_arg(*va, unsigned int);
+	address = va_arg(*va, unsigned long long);
 	str = ft_pbase(address, base);
-	//GESTION DES FLAGS
+	printf("STR --- %s\n", str);
+	if (flag->minus)
+	{
+		ft_putstr("0x");
+		ft_putstr(str);
+		print_width(flag->width, ft_strlen(str) + 2, 0);
+		free(str);
+		return (0);
+	}
+	if (flag->zero)
+	{
+		ft_putstr("0x");
+		print_width(flag->width, ft_strlen(str) + 2, 1);
+		ft_putstr(str);
+		free(str);
+		return (0);
+	}
+	print_width(flag->width, ft_strlen(str) + 2, 0);
+	ft_putstr("0x");
+	ft_putstr(str);
+	free(str);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 10:26:45 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/01/28 12:34:39 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/02/05 15:37:00 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int parsing_args(const char *s, int i, va_list *va)
 			c_count += parsing_symbols(va, s, i, s[i], &flag);
 		if (ft_istype(s[i]))
 		{
-			//parsing_types(s[i], va, &flag);
+			parsing_types(s[i], va, &flag);
 			c_count++;
 			break;
 		}

@@ -6,7 +6,7 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 11:08:03 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/02/03 17:00:58 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/02/05 14:29:26 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		parsing_symbols(va_list *va, const char *s, int mark, char c, t_indic *flag
 	return (i);
 }
 
-/*void	parsing_types(char c, va_list *va, t_indic *flag)
+void	parsing_types(char c, va_list *va, t_indic *flag)
 {
 	if (c == 'c')
 		ft_char(flag, va);
@@ -41,7 +41,7 @@ int		parsing_symbols(va_list *va, const char *s, int mark, char c, t_indic *flag
 	if (c == 'x' || c == 'X')
 		ft_hexa(flag, va);
 
-}*/
+}
 
 void	parsing_digits(char c, t_indic *flag)
 {
