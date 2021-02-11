@@ -6,13 +6,13 @@
 /*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 17:20:17 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/02/05 14:32:38 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/02/11 09:44:33 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int		len_nbr(unsigned int nbr, int len)
+static int		len_nbr(unsigned int nbr, int len)
 {
 	int i;
 	i = 0;

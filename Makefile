@@ -6,7 +6,7 @@
 #    By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/11 14:04:21 by clesaffr          #+#    #+#              #
-#    Updated: 2021/02/05 14:26:50 by clesaffr         ###   ########.fr        #
+#    Updated: 2021/02/11 09:37:59 by clesaffr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	=	libftprintf.a
 
 CC	=	gcc
 
-EXE	=	run_main5
+EXE	=	run_main_test
 
 CFLAGS	=	-Wall -Werror -Wextra
 
@@ -25,15 +25,15 @@ SRCS	=	libft_functions.c\
 			treat_flags.c\
 			parsing_args.c\
 			parsing_printf.c\
-			ft_int.c\
-			ft_string.c\
-			ft_hexa.c\
 			ft_char.c\
-			ft_pointer.c
+			ft_hexa.c\
+			ft_int.c\
+			ft_pointer.c\
+			ft_string.c
 
 OBJS	=	$(SRCS:.c=.o)
 
-HEADER		=	parsing_printf.h
+HEADER		=	printf.h
 
 TEST	=	main.c
 

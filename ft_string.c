@@ -6,7 +6,7 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 13:58:50 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/02/05 14:32:52 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/02/11 17:08:51 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		ft_string(t_indic *flag, va_list *va)
 		flag->dot = cut;
 	if (flag->minus)
 	{
-		if (flag->dot > 0)
+		if (flag->dot >= 0)
 		{
 			print_cut(str, flag->dot);
 			cut = flag->dot;
@@ -38,9 +38,13 @@ int		ft_string(t_indic *flag, va_list *va)
 		if (flag->width)
 			print_width(flag->width, flag->dot, 0);
 		print_cut(str, flag->dot);
+		if (flag->width < 0)
+			print_width(-flag->width, flag->dot, 0);
 		return (0);
 	}
 	print_width(flag->width, cut, 0);
 	ft_putstr(str);
+	if (flag->width < 0)
+		print_width(-flag->width, cut, 0);
 	return (0);
 }

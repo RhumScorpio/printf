@@ -6,7 +6,7 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 09:30:24 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/02/05 14:21:53 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/02/11 15:34:01 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,19 @@ int		dotflag(const char *s, int mark, t_indic *flag)
 {
 	int i;
 
+	printf("#ISDOT\n");
 	if (flag->zero == 1)
 		flag->zero = 0;
 	flag->dot = 0;
 	i = 0;
-	while (ft_isdigit(s[++mark]))
+	mark++;
+	while (ft_isdigit(s[mark]))
 	{
 		flag->dot = (flag->dot * 10) + (s[mark] - '0');
 		i++;
+		mark++;
 	}
+	printf("#I == %d\n#flag->dot == %d\n", i, flag->dot);
 	return (i);
 }
 

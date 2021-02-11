@@ -6,7 +6,7 @@
 /*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 10:27:38 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/02/05 15:42:07 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/02/11 09:42:09 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	starflag(va_list *va, t_indic *flag);
 void	zeroflag(t_indic *flag);
 void	parsing_digits(char c, t_indic *flag);
 void	parsing_str(const char *s, ...);
+void	parsing_types(char c, va_list *va, t_indic *flag);
 
 int		ft_strlen(char *str);
 int		ft_isdigit(char	c);
@@ -47,6 +48,7 @@ int		ft_string(t_indic *flag, va_list *va);
 int		ft_char(t_indic *flag, va_list *va);
 int		ft_hexa(char c, t_indic *flag, va_list *va);
 int		ft_pointer(t_indic *flag, va_list *va);
+int		ft_printf(const char *s, ...);
 
 char	*ft_itoa(int nb);
 char	*ft_strdup(char *src);

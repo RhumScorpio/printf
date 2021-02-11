@@ -6,7 +6,7 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 11:08:03 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/02/05 14:29:26 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/02/11 15:49:35 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		parsing_symbols(va_list *va, const char *s, int mark, char c, t_indic *flag
 		starflag(va, flag);
 	if (c == '.')
 		i = dotflag(s, mark, flag);
-	return (i);
+	return (0);
 }
 
 void	parsing_types(char c, va_list *va, t_indic *flag)
@@ -36,16 +36,18 @@ void	parsing_types(char c, va_list *va, t_indic *flag)
 		ft_int(flag, va);
 	if (c == 'p')
 		ft_pointer(flag, va);
-	if (c == 'u')
-		ft_unsignedint(flag, va);
+//	if (c == 'u')
+//		ft_unsignedint(flag, va);
 	if (c == 'x' || c == 'X')
-		ft_hexa(flag, va);
-
+		ft_hexa(c, flag, va);
+	if (c == '%')
+		ft_putchar('%');
 }
 
 void	parsing_digits(char c, t_indic *flag)
 {
-	if (c == '0' && flag->width == 0)
+	if (c == '0' && flag->width == 0 && flag->dot == -1)
 		zeroflag(flag);
-	flag->width = c - '0' + (flag->width * 10);
+	if (flag->dot == -1)
+		flag->width = c - '0' + (flag->width * 10);
 }
