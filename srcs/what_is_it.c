@@ -1,26 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_cut.c                                        :+:      :+:    :+:   */
+/*   what_is_it.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/21 08:54:07 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/02/11 11:13:06 by clesaffr         ###   ########.fr       */
+/*   Created: 2021/01/22 09:04:01 by clesaffr          #+#    #+#             */
+/*   Updated: 2021/02/12 10:15:07 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int		print_cut(char *len, int cut)
+int		ft_isdigit(char c)
 {
-	int i;
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}
+
+int		ft_istype(char c)
+{
+	int		i;
+	char	*s;
 
 	i = 0;
-	while(i < cut)
+	s = "cspdiuxX%";
+	while (s[i])
 	{
-		ft_putchar(len[i]);
+		if (c == s[i])
+			return (1);
 		i++;
 	}
-	return (i);
+	return (0);
+}
+
+int		ft_issymbol(char c)
+{
+	if (c == '-' || c == '*' || c == '.')
+		return (1);
+	return (0);
+}
+
+void	init_indic_flag(t_indic *flag)
+{
+	flag->width = 0;
+	flag->zero = 0;
+	flag->dot = -1;
+	flag->minus = 0;
+	flag->star = 0;
+	flag->negative = 0;
 }

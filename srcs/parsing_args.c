@@ -6,22 +6,22 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 11:08:03 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/02/11 15:49:35 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/02/12 12:23:21 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int		parsing_symbols(va_list *va, const char *s, int mark, char c, t_indic *flag)
+int		parsing_symbols(va_list *va, const char *s, int mark, t_indic *flag)
 {
 	int i;
 
 	i = 0;
-	if (c == '-')
+	if (s[mark] == '-')
 		minusflag(flag);
-	if (c == '*')
+	if (s[mark] == '*')
 		starflag(va, flag);
-	if (c == '.')
+	if (s[mark] == '.')
 		i = dotflag(s, mark, flag);
 	return (0);
 }
@@ -36,8 +36,6 @@ void	parsing_types(char c, va_list *va, t_indic *flag)
 		ft_int(flag, va);
 	if (c == 'p')
 		ft_pointer(flag, va);
-//	if (c == 'u')
-//		ft_unsignedint(flag, va);
 	if (c == 'x' || c == 'X')
 		ft_hexa(c, flag, va);
 	if (c == '%')

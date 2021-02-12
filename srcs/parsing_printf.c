@@ -6,32 +6,16 @@
 /*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 10:26:45 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/02/11 15:32:24 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/02/12 12:00:51 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-//void	select_ft_type(char s, t_indic *flag, va_list *va)
-//{
-	//void (*type[1])(t_indic, va_list);
-
-	//type[0] = ft_int;
-	//ft_int(flag, va);
-	/*type[1] = ft_string;
-	type[2] = ft_char;
-	type[3] = ft_p;
-	type[4] = ft_x;
-	type[5] = ft_X;
-	type[7] = ft_u;
-	type[6] = ft_percent;*/
-	// TABLEAU DE POINTEURS SUR FONCTION AVEC cspdiuxX% comme index
-//}
-
-int parsing_args(const char *s, int i, va_list *va)
+int	parsing_args(const char *s, int i, va_list *va)
 {
 	t_indic	flag;
-	int	c_count;
+	int		c_count;
 
 	init_indic_flag(&flag);
 	c_count = 0;
@@ -40,12 +24,12 @@ int parsing_args(const char *s, int i, va_list *va)
 		if (ft_isdigit(s[i]))
 			parsing_digits(s[i], &flag);
 		if (ft_issymbol(s[i]))
-			c_count += parsing_symbols(va, s, i, s[i], &flag);
+			c_count += parsing_symbols(va, s, i, &flag);
 		if (ft_istype(s[i]))
 		{
 			parsing_types(s[i], va, &flag);
 			c_count++;
-			break;
+			break ;
 		}
 		i++;
 		c_count++;
@@ -56,8 +40,8 @@ int parsing_args(const char *s, int i, va_list *va)
 int	ft_printf(const char *s, ...)
 {
 	va_list	va;
-	int c_count;
-	int ret;
+	int		c_count;
+	int		ret;
 
 	va_start(va, s);
 	c_count = 0;

@@ -6,7 +6,7 @@
 #    By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/11 14:04:21 by clesaffr          #+#    #+#              #
-#    Updated: 2021/02/11 09:37:59 by clesaffr         ###   ########.fr        #
+#    Updated: 2021/02/12 12:43:38 by clesaffr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,18 +18,18 @@ EXE	=	run_main_test
 
 CFLAGS	=	-Wall -Werror -Wextra
 
-SRCS	=	libft_functions.c\
-			print_width.c\
-			print_cut.c\
-			what_is_it.c\
-			treat_flags.c\
-			parsing_args.c\
-			parsing_printf.c\
-			ft_char.c\
-			ft_hexa.c\
-			ft_int.c\
-			ft_pointer.c\
-			ft_string.c
+SRCS	=	srcs/libft_functions.c\
+			srcs/print_width.c\
+			srcs/print_cut.c\
+			srcs/what_is_it.c\
+			srcs/treat_flags.c\
+			srcs/parsing_args.c\
+			srcs/parsing_printf.c\
+			srcs/ft_char.c\
+			srcs/ft_hexa.c\
+			srcs/ft_int.c\
+			srcs/ft_pointer.c\
+			srcs/ft_string.c
 
 OBJS	=	$(SRCS:.c=.o)
 
@@ -45,6 +45,7 @@ $(NAME) :	$(OBJS)
 
 $(OBJS) :	$(SRCS)
 	$(CC) $(CFLAGS) -c $(SRCS) -I $(HEADER)
+	mv *.o srcs/
 
 compil	:
 	$(CC) -o $(EXE) $(CFLAGS) $(SRCS) $(TEST) -I $(HEADER) 
