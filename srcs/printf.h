@@ -6,7 +6,7 @@
 /*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 10:27:38 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/02/12 12:35:27 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/03/05 09:38:53 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int				ft_string(t_indic *flag, va_list *va);
 int				ft_char(t_indic *flag, va_list *va);
 int				ft_hexa(char c, t_indic *flag, va_list *va);
 int				ft_pointer(t_indic *flag, va_list *va);
+int				ft_percent(t_indic *flag);
 int				ft_printf(const char *s, ...);
 
 char			*ft_itoa(int nb);

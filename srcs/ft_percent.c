@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_char.c                                          :+:      :+:    :+:   */
+/*   ft_percent.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/03 16:56:06 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/03/05 12:28:09 by clesaffr         ###   ########.fr       */
+/*   Created: 2021/03/05 09:19:30 by clesaffr          #+#    #+#             */
+/*   Updated: 2021/03/05 16:42:34 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int		ft_char(t_indic *flag, va_list *va)
+int		ft_percent(t_indic *flag)
 {
-	char	c;
-	int		i;
-
-	c = va_arg(*va, int);
-	if (flag->zero)
-	{
-		i = print_width(flag->width, 1, 1);
-		ft_putchar(c);
-		return (i + 1);
-	}
 	if (flag->minus)
 	{
-		ft_putchar(c);
-		i = print_width(flag->width, 1, 0);
-		return (i + 1);
+		ft_putchar('%');
+		print_width(flag->width, 1, 0);
+		return (0);
 	}
-	i = print_width(flag->width, 1, 0);
-	ft_putchar(c);
-	return (i + 1);
+	if (flag->zero)
+	{
+		print_width(flag->width, 1, 1);
+		ft_putchar('%');
+		return (0);
+	}
+	print_width(flag->width, 1, 0);
+	ft_putchar('%');
+	return (0);
 }

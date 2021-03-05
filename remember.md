@@ -19,3 +19,10 @@ typedef	struct		s_flags
 - un parsing de flag + un parsing de type
 - varier les utilisations des ft_isdigits, gérer le flag width selon l'étoile et les digits.
 
+NEW NOTES///
+
+- Gerer les pourcents
+- Renvoyer un int sur printf
+- Renvoyer char '\0'
+- Passer les testers
+

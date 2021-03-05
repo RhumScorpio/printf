@@ -6,7 +6,7 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 11:08:03 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/02/12 12:23:21 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/03/05 09:38:05 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	parsing_types(char c, va_list *va, t_indic *flag)
 	if (c == 'x' || c == 'X')
 		ft_hexa(c, flag, va);
 	if (c == '%')
-		ft_putchar('%');
+		ft_percent(flag);
 }
 
 void	parsing_digits(char c, t_indic *flag)
