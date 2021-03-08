@@ -6,7 +6,7 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 09:04:01 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/02/12 10:15:07 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/03/08 11:18:26 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,5 @@ void	init_indic_flag(t_indic *flag)
 	flag->minus = 0;
 	flag->star = 0;
 	flag->negative = 0;
+	flag->total = 0;
 }

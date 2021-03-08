@@ -6,7 +6,7 @@
 /*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 10:26:45 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/02/26 15:01:09 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/03/08 11:40:18 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	parsing_args(const char *s, int i, va_list *va)
 			c_count += parsing_symbols(va, s, i, &flag);
 		if (ft_istype(s[i]))
 		{
-			parsing_types(s[i], va, &flag);
+			flag.total = parsing_types(s[i], va, &flag);
 			c_count++;
 			break ;
 		}
@@ -42,10 +42,12 @@ int	ft_printf(const char *s, ...)
 	va_list	va;
 	int		c_count;
 	int		ret;
+	int		i;
 
 	va_start(va, s);
 	c_count = 0;
 	ret = 0;
+	i = 0;
 	while (s[c_count])
 	{
 		if (s[c_count] == '%' && s[c_count + 1])
@@ -53,10 +55,12 @@ int	ft_printf(const char *s, ...)
 			ret = parsing_args(s, ++c_count, &va);
 			if (ret)
 				c_count += ret;
+		//	i += flag->total;
 		}
 		write(1, &s[c_count], 1);
 		c_count++;
+		i++;
 	}
 	va_end(va);
-	return (c_count);
+	return (i);
 }

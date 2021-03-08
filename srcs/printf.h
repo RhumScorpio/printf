@@ -6,7 +6,7 @@
 /*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 10:27:38 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/03/05 09:38:53 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/03/08 11:18:31 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef	struct	s_indic
 	int		dot;
 	int		star;
 	int		negative;
+	int		total;
 }				t_indic;
 
 void			init_indic_flag(t_indic *flag);
@@ -35,8 +36,8 @@ void			minusflag(t_indic *flag);
 void			starflag(va_list *va, t_indic *flag);
 void			zeroflag(t_indic *flag);
 void			parsing_digits(char c, t_indic *flag);
-void			parsing_types(char c, va_list *va, t_indic *flag);
 
+int				parsing_types(char c, va_list *va, t_indic *flag);
 int				ft_strlen(char *str);
 int				ft_isdigit(char	c);
 int				ft_istype(char c);

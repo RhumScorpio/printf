@@ -6,7 +6,7 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 11:28:01 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/02/12 11:58:59 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/03/08 11:22:23 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,25 +62,27 @@ int				ft_pointer(t_indic *flag, va_list *va)
 	unsigned long long	address;
 	char				*str;
 	int					cut;
+	int					i;
 
 	address = va_arg(*va, unsigned long long);
 	str = ft_pbase(address);
 	cut = ft_strlen(str) + 2;
+	i = cut;
 	if (flag->minus)
 	{
 		add_ox(str);
-		print_width(flag->width, cut, 0);
-		return (0);
+		i += print_width(flag->width, cut, 0);
+		return (i);
 	}
 	if (flag->zero)
 	{
 		ft_putstr("0x");
-		print_width(flag->width, cut, 1);
+		i += print_width(flag->width, cut, 1);
 		ft_putstr(str);
 		free(str);
-		return (0);
+		return (i);
 	}
-	print_width(flag->width, cut, 0);
+	i += print_width(flag->width, cut, 0);
 	add_ox(str);
-	return (0);
+	return (i);
 }

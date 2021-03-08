@@ -6,7 +6,7 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 09:19:30 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/03/05 16:42:34 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/03/08 11:20:18 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,22 @@
 
 int		ft_percent(t_indic *flag)
 {
+	int i;
+
+	i = 0;
 	if (flag->minus)
 	{
 		ft_putchar('%');
-		print_width(flag->width, 1, 0);
-		return (0);
+		i = print_width(flag->width, 1, 0);
+		return (i + 1);
 	}
 	if (flag->zero)
 	{
-		print_width(flag->width, 1, 1);
+		i = print_width(flag->width, 1, 1);
 		ft_putchar('%');
-		return (0);
+		return (i + 1);
 	}
-	print_width(flag->width, 1, 0);
+	i = print_width(flag->width, 1, 0);
 	ft_putchar('%');
-	return (0);
+	return (i + 1);
 }
