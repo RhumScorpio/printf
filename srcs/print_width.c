@@ -6,7 +6,7 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 08:00:22 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/02/12 10:36:06 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/06/12 02:17:28 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int		print_width(int width, int cut, int zero)
 	int i;
 
 	i = 0;
+	if (width < 0)
+		width *= -1;
 	lenght = width - cut;
 	while (i < lenght)
 	{

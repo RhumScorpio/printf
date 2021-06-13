@@ -6,7 +6,7 @@
 #    By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/11 14:04:21 by clesaffr          #+#    #+#              #
-#    Updated: 2021/04/11 14:31:52 by clesaffr         ###   ########.fr        #
+#    Updated: 2021/06/11 11:17:04 by clesaffr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC	=	gcc
 
 EXE	=	run_main_test
 
-CFLAGS	=	-g3 -Wall -Wextra
+CFLAGS	=	-g3
 
 SRCS	=	srcs/libft_functions.c\
 			srcs/print_width.c\
@@ -37,7 +37,7 @@ OBJS	=	$(SRCS:.c=.o)
 
 HEADER		=	printf.h
 
-TEST	=	srcs/main.c
+TEST	=	srcs/main3.c
 
 all		:	$(NAME) $(OBJS)
 

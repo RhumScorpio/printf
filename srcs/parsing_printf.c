@@ -6,7 +6,7 @@
 /*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 10:26:45 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/04/04 13:56:04 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/06/07 11:34:22 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,11 @@ int	ft_printf(const char *s, ...)
 			ret = parsing_args(s, ++c_count, &va, &ret_val);
 			if (ret)
 				c_count += ret;
+			else
+			{
+				ret_val++;
+				write(1, &s[c_count - 1], 1);
+			}
 		}
 		else
 		{
