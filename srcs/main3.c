@@ -6,7 +6,7 @@
 /*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 22:49:54 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/06/12 02:29:26 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/07/13 15:36:24 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int		main(void)
 
 		while (a < 5) //T34-69
 		{
+			printf("A = %d\n", a);
 				value1 = printf("%*i, %*d, %*d, %*d, %*d, %*d, %*d, %*d\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d);
 				value2 = ft_printf("%*i, %*d, %*d, %*d, %*d, %*d, %*d, %*d\n", a, i, a, j, a, k, a, l, a, m, a, c, a, e, a, d);
 				printf("%d | %d\n", value1, value2);
@@ -67,6 +68,7 @@ int		main(void)
 				b = -2;
 				while (b < 5)
 				{
+					printf("A = %d | B = %d\n", a, b);
 						value1 = printf("%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
 						value2 = ft_printf("%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
 						printf("%d | %d\n", value1, value2);

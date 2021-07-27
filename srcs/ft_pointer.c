@@ -6,7 +6,7 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 11:28:01 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/04/11 22:47:07 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/07/23 22:53:29 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ int				ft_pointer(t_indic *flag, va_list *va)
 	int					res;
 
 	address = va_arg(*va, unsigned long long);
+	if (!address)
+		return (ft_putstr("(nil)"));
 	str = ft_pbase(address);
 	cut = ft_strlen(str) + 2;
 	res = cut;

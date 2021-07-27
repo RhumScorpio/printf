@@ -6,7 +6,7 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 09:30:24 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/02/12 12:32:41 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/07/13 18:22:52 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void		minusflag(t_indic *flag)
 {
 	if (flag->zero == 1)
-		flag->zero = 0;
+		flag->zero = -1;
 	flag->minus = 1;
 }
 
@@ -33,7 +33,7 @@ int			dotflag(const char *s, int mark, t_indic *flag)
 	int	i;
 
 	if (flag->zero == 1)
-		flag->zero = 0;
+		flag->zero = -1;
 	flag->dot = 0;
 	i = 0;
 	mark++;

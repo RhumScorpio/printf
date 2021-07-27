@@ -6,7 +6,7 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 08:10:58 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/04/10 16:37:40 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/07/23 22:29:36 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,15 @@ void		ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void		ft_putstr(char *s)
+int			ft_putstr(char *s)
 {
+	int cut;
+
+	cut = ft_strlen(s);
 	if (!s)
-		return ;
-	write(1, s, ft_strlen(s));
+		return (0);
+	write(1, s, cut);
+	return (cut);
 }
 
 static	int	len(long nb)

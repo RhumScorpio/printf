@@ -6,7 +6,7 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 13:58:50 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/04/30 00:46:12 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/07/27 13:47:45 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,9 @@ int				ft_string(t_indic *flag, va_list *va)
 	str = va_arg(*va, char *);
 	if (!str)
 	{
-		ft_putstr("(null)");
-		return (6);
+		str = "(null)";
+		if (flag->dot > 0 && flag->dot < 6)
+			flag->dot = 0;
 	}
 	cut = ft_strlen(str);
 	if (flag->dot > cut)
