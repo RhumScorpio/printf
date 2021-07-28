@@ -6,7 +6,7 @@
 /*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 17:20:17 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/07/24 00:07:24 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/07/28 20:15:13 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,9 @@ int				ft_hexa(char c, t_indic *flag, va_list *va)
 		else	if (flag->zero)
 				res = ft_zero(flag, str);
 		else	if (flag->minus)
+		{
 				res = ft_minus(cut, flag, str);
+		}
 		else
 		{
 				res = print_width(flag->width, cut, 0);

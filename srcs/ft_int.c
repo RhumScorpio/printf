@@ -6,20 +6,11 @@
 /*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 20:57:00 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/07/24 00:16:02 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/07/28 20:15:05 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
-
-static	void	putzero(int type)
-{
-		char	c;
-
-		c = ' ';
-		if (type == 1)
-				write(1,&c,1);
-}
 
 static int	ft_dot(t_indic *flag, char *str, int cut)
 {
@@ -39,8 +30,7 @@ static int	ft_dot(t_indic *flag, char *str, int cut)
 		if (flag->negative)
 				ft_putchar('-');
 		res += print_width(flag->dot, cut - flag->negative, 1);
-		ft_putstr(str + flag->negative);
-		res += cut;
+		res += ft_putstr(str + flag->negative) + flag->negative;
 		if (flag->width > 0 && flag->minus)
 		{
 				res += print_width(flag->width, flag->dot + flag->negative, 0);
@@ -53,7 +43,6 @@ static int	ft_dot(t_indic *flag, char *str, int cut)
 static int	ft_minus(t_indic *flag, char *str, int cut)
 {
 		int i;
-//tester -(-1) / .(-1)
 		i = 0;
 		if (*str == '0' && flag->dot == 0)
 		{
@@ -159,22 +148,18 @@ int			ft_int(char c, t_indic *flag, va_list *va)
 		cut = ft_strlen(str);
 		if (flag->zero)
 		{
-			//	printf("zero");
 				res = ft_zero(flag, str, cut);
 		}
 		else if (flag->minus)
 		{
-			//	printf("minus");
 				res = ft_minus(flag, str, cut);
 		}
 		else if (flag->dot >= 0)
 		{
-			//	printf("dot");
 				res = ft_dot(flag, str, cut);
 		}
 		else
 		{
-			//	printf("width");
 				res = ft_width(flag, str, cut);
 		}
 		free(str);
