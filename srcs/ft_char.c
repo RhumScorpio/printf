@@ -6,7 +6,7 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 16:56:06 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/04/11 22:39:20 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/07/30 12:39:21 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,11 @@ int		ft_char(t_indic *flag, va_list *va)
 	}
 	else
 	{
-		res = print_width(flag->width, 1, 0);
+		if (flag->width > 0)
+			res = print_width(flag->width, 1, 0);
 		ft_putchar(c);
+		if (flag->width < 0)
+			res = print_width(-flag->width, 1, 0);
 	}
 	res++;
 	return (res);

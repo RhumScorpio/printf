@@ -6,7 +6,7 @@
 /*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 20:57:00 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/07/28 20:15:05 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/07/29 21:29:35 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	ft_dot(t_indic *flag, char *str, int cut)
 		res = 0;
 		if (cut - flag->negative > flag->dot && *str != '0')
 				flag->dot = cut - flag->negative;
-		if (flag->width > 0 && !(flag->minus))
+		if (flag->width > 0 && !flag->minus)
 				res += print_width(flag->width, flag->dot + flag->negative, 0);
 		if (*str == '0' && flag->dot == 0)
 		{
@@ -31,12 +31,8 @@ static int	ft_dot(t_indic *flag, char *str, int cut)
 				ft_putchar('-');
 		res += print_width(flag->dot, cut - flag->negative, 1);
 		res += ft_putstr(str + flag->negative) + flag->negative;
-		if (flag->width > 0 && flag->minus)
-		{
+		if (flag->width < 0 || flag->minus)
 				res += print_width(flag->width, flag->dot + flag->negative, 0);
-		}
-		if (flag->width < 0)
-				res += print_width(-flag->width, flag->dot + flag->negative, 0);
 		return (res);
 }
 
@@ -53,8 +49,8 @@ static int	ft_minus(t_indic *flag, char *str, int cut)
 				i += ft_dot(flag, str, cut);
 		else
 		{
-				ft_putstr(str);
-				i += print_width(flag->width, cut, 0) + cut;
+				i += ft_putstr(str);
+				i += print_width(flag->width, cut, 0);
 		}
 		return (i);
 }
@@ -74,22 +70,13 @@ static int	ft_zero(t_indic *flag, char *str, int cut)
 				i += ft_dot(flag, str, cut);
 				return (i);
 		}
+		if (flag->negative)
+				ft_putchar('-');
+		if (flag->width >= 0)
+				i += print_width(flag->width, cut, 1);	
+		i += ft_putstr(str + flag->negative) + flag->negative;
 		if (flag->width < 0)
-		{
-				if (flag->negative)
-						ft_putchar('-');
-				ft_putstr(str + flag->negative);
-				i += print_width(-flag->width, cut, 0);
-
-		}
-		else
-		{
-				if (flag->negative)
-						ft_putchar('-');
-				i += print_width(flag->width, cut, 1);
-				ft_putstr(str + flag->negative);
-		}
-		i += cut;
+			i += print_width(-flag->width, cut, 0);
 		return (i);
 }
 
@@ -147,21 +134,13 @@ int			ft_int(char c, t_indic *flag, va_list *va)
 		str = va_argtype(c, flag, va);
 		cut = ft_strlen(str);
 		if (flag->zero)
-		{
 				res = ft_zero(flag, str, cut);
-		}
 		else if (flag->minus)
-		{
 				res = ft_minus(flag, str, cut);
-		}
 		else if (flag->dot >= 0)
-		{
 				res = ft_dot(flag, str, cut);
-		}
 		else
-		{
 				res = ft_width(flag, str, cut);
-		}
 		free(str);
 		return (res);
 }

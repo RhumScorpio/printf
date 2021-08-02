@@ -6,7 +6,7 @@
 #    By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/11 14:04:21 by clesaffr          #+#    #+#              #
-#    Updated: 2021/07/28 23:04:25 by clesaffr         ###   ########.fr        #
+#    Updated: 2021/07/30 12:33:03 by clesaffr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ OBJS	=	$(SRCS:.c=.o)
 
 HEADER		=	printf.h
 
-TEST	=	srcs/main5.c
+TEST	=	srcs/main8.c
 
 all		:	$(NAME) $(OBJS)
 

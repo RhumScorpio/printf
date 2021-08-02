@@ -6,7 +6,7 @@
 /*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 15:42:03 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/07/26 17:58:26 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/07/30 12:36:06 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,59 +52,59 @@ int main()
 		printf("%d | %d\n", value1, value2);
 		value1 = printf("%*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X\n", a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m, a, b, m, a, b, m, a, b, c, a, b, c, a, b, c, a, b, d, a, b, d, a, b, d, a, b, e, a, b, e, a, b, e);
 		value2 = ft_printf("%*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X, %*.*u, %*.*x, %*.*X\n", a, b, i, a, b, i, a, b, i, a, b, j, a, b, j, a, b, j, a, b, k, a, b, k, a, b, k, a, b, l, a, b, l, a, b, l, a, b, m, a, b, m, a, b, m, a, b, c, a, b, c, a, b, c, a, b, d, a, b, d, a, b, d, a, b, e, a, b, e, a, b, e);
-		printf("%d | %d\n", value1, value2);
+		printf("T17/%d | %d\n", value1, value2);
 		value1 = printf("%-*p, %-*x, %-*p, %-*x, %-*p, %-*x, %-*p, %-*x\n", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912, a, (void *)1, a, 1, a, NULL, a, 0);
 		value2 = ft_printf("%-*p, %-*x, %-*p, %-*x, %-*p, %-*x, %-*p, %-*x\n", a, (void *)209590960, a, 209590960, a, (void *)207038912, a, 207038912, a, (void *)1, a, 1, a, NULL, a, 0);
-		printf("%d | %d\n", value1, value2);
+		printf("T16/%d | %d\n", value1, value2);
 
 		a = 12;
 		b = 18;
 		value1 = printf("%c,  %-c, %1c, %*c,  %-*c,  %*c, %-*c\n", c, n[0], o[0], a, p[0], a, q[0], a, r[0], a, c);
 		value2 = ft_printf("%c,  %-c, %1c, %*c,  %-*c,  %*c, %-*c\n", c, n[0], o[0], a, p[0], a, q[0], a, r[0], a, c);
-		printf("%d | %d\n", value1, value2);
+		printf("T15/%d | %d\n", value1, value2);
 		value1 = printf("%c,  %-c, %1c, %*c,  %-*c,  %*c, %-*c\n", c, n[0], o[0], -a, p[0], -a, q[0], -a, r[0], -a, c);
 		value2 = ft_printf("%c,  %-c, %1c, %*c,  %-*c,  %*c, %-*c\n", c, n[0], o[0], -a, p[0], -a, q[0], -a, r[0], -a, c);
-		printf("%d | %d\n", value1, value2);
+		printf("T14/%d | %d\n", value1, value2);
 		value1 = printf("%c,  %-c, %1c, %*c,  %-*c,  %*c, %-*c\n", c, n[0], q[0], a, q[0], a, p[0], a, p[0], a, c);
 		value2 = ft_printf("%c,  %-c, %1c, %*c,  %-*c,  %*c, %-*c\n", c, n[0], q[0], a, q[0], a, p[0], a, p[0], a, c);
-		printf("%d | %d\n", value1, value2);
+		printf("T13/%d | %d\n", value1, value2);
 		value1 = printf("%c,  %-c, %1c, %*c,  %-*c,  %*c\n", -12, -1, -255, a, -12, a, -1, a, -255);
 		value2 = ft_printf("%c,  %-c, %1c, %*c,  %-*c,  %*c\n", -12, -1, -255, a, -12, a, -1, a, -255);
-		printf("%d | %d\n", value1, value2);
+		printf("T12/%d | %d\n", value1, value2);
 		value1 = printf("%%, \t, \\, \", \', +\n");
 		value2 = ft_printf("%%, \t, \\, \", \', +\n");
-		printf("%d | %d\n", value1, value2);
+		printf("T11/%d | %d\n", value1, value2);
 		value1 = printf("%%%dbada%s%%**%s**-d%%0*d%-12s0*@\n", h, "bada", r, p, r, r, i, r, i, r, i);
 		value2 = ft_printf("%%%dbada%s%%**%s**-d%%0*d%-12s0*@\n", h, "bada", r, p, r, r, i, r, i, r, i);
-		printf("%d | %d\n", value1, value2);
+		printf("T10/%d | %d\n", value1, value2);
 		value1 = printf("%-00000-----*i, %---0.*d, %0-0-0-0-0.*d, %-0-0-0-0-.*d, %-----.*d\n", a, i, a, i, a, i, a, i, a, i);
 		value2 = ft_printf("%-00000-----*i, %---0.*d, %0-0-0-0-0.*d, %-0-0-0-0-.*d, %-----.*d\n", a, i, a, i, a, i, a, i, a, i);
-		printf("%d | %d\n", value1, value2);
+		printf("T9/%d | %d\n", value1, value2);
 		value1 = printf("%-00000-----*i, %---0.*d, %0-0-0-0-0.*d, %-0-0-0-0-.*d, %-----.*d\n", a, j, a, j, a, j, a, j, a, j);
 		value2 = ft_printf("%-00000-----*i, %---0.*d, %0-0-0-0-0.*d, %-0-0-0-0-.*d, %-----.*d\n", a, j, a, j, a, j, a, j, a, j);
-		printf("%d | %d\n", value1, value2);
+		printf("T8/%d | %d\n", value1, value2);
 		value1 = printf("%-00000-----*i, %---0.*d, %0-0-0-0-0.*d, %-0-0-0-0-.*d, %-----.*d\n", a, l, a, l, a, l, a, l, a, l);
 		value2 = ft_printf("%-00000-----*i, %---0.*d, %0-0-0-0-0.*d, %-0-0-0-0-.*d, %-----.*d\n", a, l, a, l, a, l, a, l, a, l);
-		printf("%d | %d\n", value1, value2);
+		printf("T7/%d | %d\n", value1, value2);
 		value1 = printf("%i, %d, %d, %d, %d, %d, %u, %x, %X\n", 0, 0, 0, 0, 0, 0, 0, 0, 0);
 		value2 = ft_printf("%i, %d, %d, %d, %d, %d, %u, %x, %X\n", 0, 0, 0, 0, 0, 0, 0, 0, 0);
-		printf("%d | %d\n", value1, value2);
+		printf("T6/%d | %d\n", value1, value2);
 		value1 = printf("%*i, %*d, %*d, %*d, %*d, %*d, %*u, %*x, %*X\n", a, 0, a, 0, a, 0, a, 0, a, 0, a, 0, a, 0, a, 0, a, 0);
 		value2 = ft_printf("%*i, %*d, %*d, %*d, %*d, %*d, %*u, %*x, %*X\n", a, 0, a, 0, a, 0, a, 0, a, 0, a, 0, a, 0, a, 0, a, 0);
-		printf("%d | %d\n", value1, value2);
+		printf("T5/%d | %d\n", value1, value2);
 		value1 = printf("%c, %-c, %12c, %-3c, %-1c, %1c, %-2c, %-4c, %5c, %3c, %-*c, %-*c, %*c, %*c\n", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0);
 		value2 = ft_printf("%c, %-c, %12c, %-3c, %-1c, %1c, %-2c, %-4c, %5c, %3c, %-*c, %-*c, %*c, %*c\n", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0);
-		printf("%d | %d\n", value1, value2);
+		printf("T4/%d | %d\n", value1, value2);
 		value1 = printf("%-2s, %.s, %-4s, %-2.4s, %-8.12s, %3s, %8s, %---2s, %.*s, %.0s, %.1s, %.2s, %.4s, %.8s\n", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, -2, NULL, NULL, NULL, NULL, NULL, NULL);
 		value2 = ft_printf("%-2s, %.s, %-4s, %-2.4s, %-8.12s, %3s, %8s, %---2s, %.*s, %.0s, %.1s, %.2s, %.4s, %.8s\n", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, -2, NULL, NULL, NULL, NULL, NULL, NULL);
-		printf("%d | %d\n", value1, value2);
+		printf("T3/%d | %d\n", value1, value2);
 		// ^ Theoriquement un comportement indefini mais testé par la moulinette
 		value1 = printf("(null)\n");
 		value2 = ft_printf("(null)\n");
-		printf("%d | %d\n", value1, value2);
+		printf("T2/%d | %d\n", value1, value2);
 		value1 = printf("");
 		value2 = ft_printf("");
-		printf("%d | %d\n", value1, value2);
+		printf("T1/%d | %d\n", value1, value2);
 
 		return(0);
 }

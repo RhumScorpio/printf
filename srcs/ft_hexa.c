@@ -6,7 +6,7 @@
 /*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 17:20:17 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/07/28 20:15:13 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/07/29 21:30:39 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,15 +65,11 @@ int				ft_hexa(char c, t_indic *flag, va_list *va)
 		cut = ft_strlen(str);
 
 		if (flag->dot >= 0)
-		{
 				res += ft_dot(flag, str, cut);
-		}
 		else	if (flag->zero)
 				res = ft_zero(flag, str);
 		else	if (flag->minus)
-		{
 				res = ft_minus(cut, flag, str);
-		}
 		else
 		{
 				res = print_width(flag->width, cut, 0);
