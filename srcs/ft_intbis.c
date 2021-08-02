@@ -6,11 +6,11 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 15:49:47 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/08/02 15:50:07 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/08/03 01:11:40 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "../includes/printf.h"
 
 int	int_dot(t_indic *flag, char *str, int cut)
 {

@@ -6,11 +6,11 @@
 /*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 17:20:17 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/08/02 15:40:36 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/08/03 01:11:03 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "../includes/printf.h"
 
 static int	ft_dot(t_indic *flag, char *str, int cut)
 {

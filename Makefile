@@ -6,7 +6,7 @@
 #    By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/11 14:04:21 by clesaffr          #+#    #+#              #
-#    Updated: 2021/08/02 18:13:50 by clesaffr         ###   ########.fr        #
+#    Updated: 2021/08/03 01:27:15 by clesaffr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,7 @@ NAME	=	libftprintf.a
 
 CC	=	gcc
 
-EXE	=	run_main_test
-
-CFLAGS	=	-g3
+CFLAGS	=	-Wall -Werror -Wextra
 
 SRCS	=	srcs/libft_functions.c\
 			srcs/print_width.c\
@@ -37,26 +35,26 @@ SRCS	=	srcs/libft_functions.c\
 
 OBJS	=	$(SRCS:.c=.o)
 
-HEADER		=	printf.h
+INCLUDES	=	-I ./includes
 
 all		:	$(NAME) $(OBJS)
 
 $(NAME) :	$(OBJS)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
+	@clear
+	@echo "I MADE IT MOMMY :)"
 
 $(OBJS) :	$(SRCS)
-	$(CC) $(CFLAGS) -c $(SRCS) -I $(HEADER)
+	$(CC) $(CFLAGS) -c $(SRCS) $(HEADER)
 	mv *.o srcs/
-
-compil	:
-	$(CC) -o $(EXE) $(CFLAGS) $(SRCS) -I $(HEADER) 
-
+	
 clean	:
 	rm -rf $(OBJS)
 
 fclean	:	clean
 	rm -rf $(NAME)
+	@clear
 
 re		:	fclean all
 

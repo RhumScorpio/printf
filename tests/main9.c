@@ -6,11 +6,11 @@
 /*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 15:42:03 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/08/02 18:19:39 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/08/03 01:13:17 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "../includes/printf.h"
 
 int main()
 {

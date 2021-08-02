@@ -6,11 +6,11 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 09:19:30 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/08/02 15:53:18 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/08/03 01:12:02 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "../includes/printf.h"
 
 int	ft_percent(t_indic *flag)
 {
