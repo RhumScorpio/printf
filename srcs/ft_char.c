@@ -6,13 +6,13 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 16:56:06 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/07/30 12:39:21 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/08/02 15:41:08 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int		ft_char(t_indic *flag, va_list *va)
+int	ft_char(t_indic *flag, va_list *va)
 {
 	char	c;
 	int		res;

@@ -6,15 +6,15 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 09:19:30 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/04/12 02:01:44 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/08/02 15:53:18 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int		ft_percent(t_indic *flag)
+int	ft_percent(t_indic *flag)
 {
-	int res;
+	int	res;
 
 	res = 0;
 	if (flag->minus)

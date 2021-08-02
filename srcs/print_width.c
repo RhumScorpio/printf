@@ -6,16 +6,16 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 08:00:22 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/07/13 18:44:38 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/08/02 17:50:33 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int		print_width(int width, int cut, int zero)
+int	print_width(int width, int cut, int zero)
 {
-	int lenght;
-	int i;
+	int	lenght;
+	int	i;
 
 	i = 0;
 	if (width < 0)

@@ -6,15 +6,14 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 11:08:03 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/04/12 01:33:10 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/08/02 18:12:51 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int		parsing_symbols(va_list *va, const char *s, int mark, t_indic *flag)
+int	parsing_symbols(va_list *va, const char *s, int mark, t_indic *flag)
 {
-
 	if (s[mark] == '-')
 		minusflag(flag);
 	if (s[mark] == '*')
@@ -24,9 +23,9 @@ int		parsing_symbols(va_list *va, const char *s, int mark, t_indic *flag)
 	return (0);
 }
 
-int		parsing_types(char c, va_list *va, t_indic *flag)
+int	parsing_types(char c, va_list *va, t_indic *flag)
 {
-	int res;
+	int	res;
 
 	res = 0;
 	if (c == 'c')

@@ -6,20 +6,20 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 09:04:01 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/03/18 15:34:13 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/08/02 17:53:56 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int		ft_isdigit(char c)
+int	ft_isdigit(char c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
 }
 
-int		ft_istype(char c)
+int	ft_istype(char c)
 {
 	int		i;
 	char	*s;
@@ -35,7 +35,7 @@ int		ft_istype(char c)
 	return (0);
 }
 
-int		ft_issymbol(char c)
+int	ft_issymbol(char c)
 {
 	if (c == '-' || c == '*' || c == '.')
 		return (1);

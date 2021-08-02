@@ -6,7 +6,7 @@
 /*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 10:26:45 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/06/07 11:34:22 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/08/02 18:40:28 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,19 @@ int	parsing_args(const char *s, int i, va_list *va, int *ret_val)
 	return (c_count);
 }
 
+void	printchar(int *retval, char c)
+{
+	*retval += 1;
+	write(1, &c, 1);
+}
+
+void	printchar_gofor(int *retval, char c, int *c_count)
+{
+	*retval += 1;
+	*c_count += 1;
+	write(1, &c, 1);
+}
+
 int	ft_printf(const char *s, ...)
 {
 	va_list	va;
@@ -46,7 +59,6 @@ int	ft_printf(const char *s, ...)
 
 	va_start(va, s);
 	c_count = 0;
-	ret = 0;
 	ret_val = 0;
 	while (s[c_count])
 	{
@@ -56,17 +68,10 @@ int	ft_printf(const char *s, ...)
 			if (ret)
 				c_count += ret;
 			else
-			{
-				ret_val++;
-				write(1, &s[c_count - 1], 1);
-			}
+				printchar(&ret_val, s[c_count - 1]);
 		}
 		else
-		{
-			write(1, &s[c_count], 1);
-			c_count++;
-			ret_val++;
-		}
+			printchar_gofor(&ret_val, s[c_count], &c_count);
 	}
 	va_end(va);
 	return (ret_val);

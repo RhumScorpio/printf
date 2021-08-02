@@ -6,20 +6,20 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 09:30:24 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/07/13 18:22:52 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/08/02 17:53:17 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-void		minusflag(t_indic *flag)
+void	minusflag(t_indic *flag)
 {
 	if (flag->zero == 1)
 		flag->zero = -1;
 	flag->minus = 1;
 }
 
-void		starflag(va_list *va, t_indic *flag)
+void	starflag(va_list *va, t_indic *flag)
 {
 	if (flag->dot == 0)
 		flag->dot = va_arg(*va, int);
@@ -28,7 +28,7 @@ void		starflag(va_list *va, t_indic *flag)
 	flag->star = 1;
 }
 
-int			dotflag(const char *s, int mark, t_indic *flag)
+int	dotflag(const char *s, int mark, t_indic *flag)
 {
 	int	i;
 
@@ -46,7 +46,7 @@ int			dotflag(const char *s, int mark, t_indic *flag)
 	return (i);
 }
 
-void		zeroflag(t_indic *flag)
+void	zeroflag(t_indic *flag)
 {
 	if (flag->minus)
 		flag->zero = 0;

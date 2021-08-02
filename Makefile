@@ -6,7 +6,7 @@
 #    By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/11 14:04:21 by clesaffr          #+#    #+#              #
-#    Updated: 2021/07/30 12:33:03 by clesaffr         ###   ########.fr        #
+#    Updated: 2021/08/02 18:13:50 by clesaffr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,13 +31,13 @@ SRCS	=	srcs/libft_functions.c\
 			srcs/ft_pointer.c\
 			srcs/ft_string.c\
 			srcs/ft_base.c\
-			srcs/ft_percent.c
+			srcs/ft_percent.c\
+			srcs/itoas.c\
+			srcs/ft_intbis.c
 
 OBJS	=	$(SRCS:.c=.o)
 
 HEADER		=	printf.h
-
-TEST	=	srcs/main8.c
 
 all		:	$(NAME) $(OBJS)
 
@@ -50,7 +50,7 @@ $(OBJS) :	$(SRCS)
 	mv *.o srcs/
 
 compil	:
-	$(CC) -o $(EXE) $(CFLAGS) $(SRCS) $(TEST) -I $(HEADER) 
+	$(CC) -o $(EXE) $(CFLAGS) $(SRCS) -I $(HEADER) 
 
 clean	:
 	rm -rf $(OBJS)

@@ -6,7 +6,7 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 13:58:50 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/07/30 12:22:30 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/08/02 18:15:57 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static	int	ft_width(int cut, char *str, t_indic *flag)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (flag->width > 0)
@@ -27,7 +27,7 @@ static	int	ft_width(int cut, char *str, t_indic *flag)
 
 static	int	ft_minus(int cut, char *str, t_indic *flag)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (flag->dot >= 0)
@@ -46,7 +46,7 @@ static	int	ft_minus(int cut, char *str, t_indic *flag)
 
 static	int	ft_dot(char *str, t_indic *flag)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (flag->width >= 0)
@@ -57,7 +57,7 @@ static	int	ft_dot(char *str, t_indic *flag)
 	return (i);
 }
 
-int				ft_string(t_indic *flag, va_list *va)
+int	ft_string(t_indic *flag, va_list *va)
 {
 	char	*str;
 	int		cut;

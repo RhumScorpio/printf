@@ -6,19 +6,22 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 11:28:01 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/07/28 22:36:40 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/08/02 16:04:16 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-static	void	add_ox(char *str)
+static	int	add_ox(char *str)
 {
-	ft_putstr("0x");
-	ft_putstr(str);
+	int	i;
+
+	i = ft_putstr("0x");
+	i += ft_putstr(str);
+	return (i);
 }
 
-static	int		len_nbr(unsigned long long nbr, int len)
+static	int	len_nbr(unsigned long long nbr, int len)
 {
 	int	i;
 
@@ -35,20 +38,17 @@ static	char	*ft_pbase(unsigned long long nbr)
 {
 	char	*base;
 	char	*str;
-	int		len;
 	int		size;
 	int		i;
 
 	base = "0123456789abcdef";
-	len = ft_strlen(base);
-	size = len_nbr(nbr, len);
-	if (!(str = malloc(sizeof(char) * size + 1)))
-		return (NULL);
+	size = len_nbr(nbr, 16);
+	str = malloc(sizeof(char) * size + 1);
 	str[size] = '\0';
 	i = 0;
 	while (nbr)
 	{
-		i = nbr % len;
+		i = nbr % 16;
 		nbr = nbr / 16;
 		size--;
 		str[size] = base[i];
@@ -56,7 +56,31 @@ static	char	*ft_pbase(unsigned long long nbr)
 	return (str);
 }
 
-int				ft_pointer(t_indic *flag, va_list *va)
+static int	result_pointer(t_indic *flag, char *str, int cut)
+{
+	int	res;
+
+	res = 0;
+	if (flag->minus)
+	{
+		res += add_ox(str);
+		res += print_width(flag->width, cut, 0);
+	}
+	else if (flag->zero)
+	{
+		res += ft_putstr("0x");
+		res += print_width(flag->width, cut, 1);
+		res += ft_putstr(str);
+	}
+	else
+	{
+		res += print_width(flag->width, cut, 0);
+		res += add_ox(str);
+	}
+	return (res);
+}
+
+int	ft_pointer(t_indic *flag, va_list *va)
 {
 	unsigned long long	address;
 	char				*str;
@@ -76,23 +100,7 @@ int				ft_pointer(t_indic *flag, va_list *va)
 	}
 	str = ft_pbase(address);
 	cut = ft_strlen(str) + 2;
-	res = cut;
-	if (flag->minus)
-	{
-		add_ox(str);
-		res += print_width(flag->width, cut, 0);
-	}
-	else if (flag->zero)
-	{
-		ft_putstr("0x");
-		res += print_width(flag->width, cut, 1);
-		ft_putstr(str);
-	}
-	else
-	{
-		res += print_width(flag->width, cut, 0);
-		add_ox(str);
-	}
+	res = result_pointer(flag, str, cut);
 	free(str);
 	return (res);
 }
