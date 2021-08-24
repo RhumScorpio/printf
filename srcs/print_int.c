@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_int.c                                           :+:      :+:    :+:   */
+/*   print_int.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 20:57:00 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/08/03 01:11:27 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/08/06 19:08:41 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*va_argtype(char c, t_indic *flag, va_list *va)
 	if (c == 'u')
 	{
 		num = va_arg(*va, unsigned int);
-		str = ft_itoau(num);
+		str = ft_utoa(num);
 	}
 	else
 	{

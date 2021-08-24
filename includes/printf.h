@@ -6,7 +6,7 @@
 /*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 10:27:38 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/08/03 00:55:37 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/08/23 17:12:10 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int		int_dot(t_indic *flag, char *str, int cut);
 int		int_minus(t_indic *flag, char *str, int cut);
 int		int_zero(t_indic *flag, char *str, int cut);
 int		int_width(t_indic *flag, char *str, int cut);
-
+int		verifychar(const char *s, int i);
 int		ft_int(char c, t_indic *flag, va_list *va);
 int		ft_string(t_indic *flag, va_list *va);
 int		ft_char(t_indic *flag, va_list *va);
@@ -57,9 +57,11 @@ int		ft_hexa(char c, t_indic *flag, va_list *va);
 int		ft_pointer(t_indic *flag, va_list *va);
 int		ft_percent(t_indic *flag);
 int		ft_printf(const char *s, ...);
+int		putzeroes(int lenght, int cut, char *str);
 
+char	*ft_pbase(unsigned long long nbr);
 char	*ft_itoa(int nb);
-char	*ft_itoau(unsigned int nb);
+char	*ft_utoa(unsigned int nb);
 char	*ft_xbase(unsigned int nbr, char c);
 
 #endif

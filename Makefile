@@ -6,56 +6,64 @@
 #    By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/11 14:04:21 by clesaffr          #+#    #+#              #
-#    Updated: 2021/08/03 01:27:15 by clesaffr         ###   ########.fr        #
+#    Updated: 2021/08/24 14:13:28 by clesaffr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+NAME		=	libftprintf.a
 
-NAME	=	libftprintf.a
+CC			=	gcc
 
-CC	=	gcc
+CFLAGS		=	-Wall -Werror -Wextra
 
-CFLAGS	=	-Wall -Werror -Wextra
-
-SRCS	=	srcs/libft_functions.c\
-			srcs/print_width.c\
-			srcs/print_cut.c\
-			srcs/what_is_it.c\
-			srcs/treat_flags.c\
-			srcs/parsing_args.c\
-			srcs/parsing_printf.c\
-			srcs/ft_char.c\
-			srcs/ft_hexa.c\
-			srcs/ft_int.c\
-			srcs/ft_pointer.c\
-			srcs/ft_string.c\
-			srcs/ft_base.c\
-			srcs/ft_percent.c\
-			srcs/itoas.c\
-			srcs/ft_intbis.c
-
-OBJS	=	$(SRCS:.c=.o)
+SRCS		=	flag_initialize.c\
+				into_array.c\
+				parsing_args.c\
+				parsing_printf.c\
+				print_char.c\
+				print_hexabase.c\
+				print_hexa.c\
+				print_int.c\
+				print_intspec.c\
+				print_percent.c\
+				print_pointer.c\
+				print_pointerbis.c\
+				print_string.c\
+				to_print.c\
+				treat_flags.c
 
 INCLUDES	=	-I ./includes
 
-all		:	$(NAME) $(OBJS)
+PATH_OBJS	=	./.objs/
 
-$(NAME) :	$(OBJS)
-	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
-	@clear
-	@echo "I MADE IT MOMMY :)"
+PATH_SRCS	=	./srcs/
 
-$(OBJS) :	$(SRCS)
-	$(CC) $(CFLAGS) -c $(SRCS) $(HEADER)
-	mv *.o srcs/
-	
-clean	:
-	rm -rf $(OBJS)
+F_OBJS		=	$(addprefix $(PATH_OBJS), $(OBJS))
 
-fclean	:	clean
-	rm -rf $(NAME)
-	@clear
+OBJS		=	$(SRCS:.c=.o)
 
-re		:	fclean all
+all				: $(PATH_OBJS) $(NAME)
+
+$(PATH_OBJS)	:	
+					@mkdir -p $(PATH_OBJS)
+
+$(NAME)			:	$(F_OBJS)
+					@echo "*****PRINTF*****"
+					@ar rc $(NAME) $(F_OBJS)
+					@ranlib $(NAME)
+					@echo "I MADE IT MOMMY :)"
+
+$(PATH_OBJS)%.o	:	$(PATH_SRCS)%.c
+						@echo Compiling
+						@$(CC) $(INCLUDES) $(FLAGS) -c $< -o $@
+bonus			:	all
+
+clean			:
+					@rm -rf $(F_OBJS) $(PATH_OBJS)
+
+fclean			:	clean
+					@rm -f $(NAME)
+					@clear
+
+re				:	fclean all
 
 .PHONY: clean fclean all re

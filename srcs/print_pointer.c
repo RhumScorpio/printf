@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pointer.c                                       :+:      :+:    :+:   */
+/*   print_pointer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 11:28:01 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/08/03 01:12:30 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/08/23 17:19:13 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,26 +34,19 @@ static	int	len_nbr(unsigned long long nbr, int len)
 	return (i);
 }
 
-static	char	*ft_pbase(unsigned long long nbr)
+static int	ifdot(t_indic *flag, int cut, char *str)
 {
-	char	*base;
-	char	*str;
-	int		size;
-	int		i;
+	int	i;
 
-	base = "0123456789abcdef";
-	size = len_nbr(nbr, 16);
-	str = malloc(sizeof(char) * size + 1);
-	str[size] = '\0';
 	i = 0;
-	while (nbr)
-	{
-		i = nbr % 16;
-		nbr = nbr / 16;
-		size--;
-		str[size] = base[i];
-	}
-	return (str);
+	if (flag->dot < cut)
+		flag->dot = cut;
+	if (flag->width > 0 && !flag->minus)
+		i += print_width(flag->width, flag->dot + 2, 0);
+	i += putzeroes(flag->dot, cut, str);
+	if (flag->width < 0 || flag->minus)
+		i += print_width(flag->width, flag->dot + 2, 0);
+	return (i);
 }
 
 static int	result_pointer(t_indic *flag, char *str, int cut)
@@ -61,17 +54,16 @@ static int	result_pointer(t_indic *flag, char *str, int cut)
 	int	res;
 
 	res = 0;
-	if (flag->minus)
+	cut = ft_strlen(str);
+	if (flag->dot)
+		res += ifdot(flag, cut, str);
+	else if (flag->minus)
 	{
 		res += add_ox(str);
 		res += print_width(flag->width, cut, 0);
 	}
 	else if (flag->zero)
-	{
-		res += ft_putstr("0x");
-		res += print_width(flag->width, cut, 1);
-		res += ft_putstr(str);
-	}
+		res += putzeroes(flag->width, cut, str);
 	else
 	{
 		res += print_width(flag->width, cut, 0);

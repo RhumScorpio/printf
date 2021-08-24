@@ -1,33 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_width.c                                      :+:      :+:    :+:   */
+/*   print_char.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/21 08:00:22 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/08/03 01:13:59 by clesaffr         ###   ########.fr       */
+/*   Created: 2021/02/03 16:56:06 by clesaffr          #+#    #+#             */
+/*   Updated: 2021/08/03 19:45:49 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
 
-int	print_width(int width, int cut, int zero)
+int	ft_char(t_indic *flag, va_list *va)
 {
-	int	lenght;
-	int	i;
+	char	c;
+	int		res;
 
-	i = 0;
-	if (width < 0)
-		width *= -1;
-	lenght = width - cut;
-	while (i < lenght)
+	res = 0;
+	c = va_arg(*va, int);
+	if (flag->zero)
 	{
-		if (zero)
-			ft_putchar('0');
-		else
-			ft_putchar(' ');
-		i++;
+		res = print_width(flag->width, 1, 1);
+		ft_putchar(c);
 	}
-	return (i);
+	else if (flag->minus)
+	{
+		ft_putchar(c);
+		res = print_width(flag->width, 1, 0);
+	}
+	else
+	{
+		if (flag->width > 0)
+			res = print_width(flag->width, 1, 0);
+		ft_putchar(c);
+		if (flag->width < 0)
+			res = print_width(-flag->width, 1, 0);
+	}
+	res++;
+	return (res);
 }

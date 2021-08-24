@@ -6,19 +6,42 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 11:08:03 by clesaffr          #+#    #+#             */
-/*   Updated: 2021/08/03 01:13:26 by clesaffr         ###   ########.fr       */
+/*   Updated: 2021/08/23 17:24:47 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/printf.h"
 
+int	verifychar(const char *s, int i)
+{
+	int	j;
+	int	setpoint;
+
+	j = i;
+	setpoint = 0;
+	if (ft_istype(s[j]) || ft_isdigit(s[j]) || ft_issymbol(s[j]))
+	{
+		while (ft_issymbol(s[j]) || ft_isdigit(s[j]))
+		{
+			if (s[j] == '.')
+				setpoint = 1;
+			if (s[j] == '-' && setpoint)
+				return (-1);
+			j++;
+		}
+		if (ft_istype(s[j]))
+			return (0);
+	}
+	return (-1);
+}
+
 int	parsing_symbols(va_list *va, const char *s, int mark, t_indic *flag)
 {
 	if (s[mark] == '-')
 		minusflag(flag);
-	if (s[mark] == '*')
+	else if (s[mark] == '*')
 		starflag(va, flag);
-	if (s[mark] == '.')
+	else if (s[mark] == '.')
 		dotflag(s, mark, flag);
 	return (0);
 }
