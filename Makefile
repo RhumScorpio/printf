@@ -6,7 +6,7 @@
 #    By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/11 14:04:21 by clesaffr          #+#    #+#              #
-#    Updated: 2021/08/24 14:13:28 by clesaffr         ###   ########.fr        #
+#    Updated: 2021/09/04 16:51:37 by clesaffr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME		=	libftprintf.a
@@ -47,13 +47,10 @@ $(PATH_OBJS)	:
 					@mkdir -p $(PATH_OBJS)
 
 $(NAME)			:	$(F_OBJS)
-					@echo "*****PRINTF*****"
 					@ar rc $(NAME) $(F_OBJS)
 					@ranlib $(NAME)
-					@echo "I MADE IT MOMMY :)"
 
 $(PATH_OBJS)%.o	:	$(PATH_SRCS)%.c
-						@echo Compiling
 						@$(CC) $(INCLUDES) $(FLAGS) -c $< -o $@
 bonus			:	all
 
@@ -62,7 +59,6 @@ clean			:
 
 fclean			:	clean
 					@rm -f $(NAME)
-					@clear
 
 re				:	fclean all
 
